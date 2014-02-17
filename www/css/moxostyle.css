@@ -1,7 +1,31 @@
 div {
+    color: #010101;
     background-color: #EEEEEE;
     border: 1px solid #888888;
     border-radius: 5px;
     padding: 3px 10px 3px 10px;
-    width: 350px;
+    width: 30%;
+}
+
+.nexus7_horizontal {
+    background-color: #010101;
+    width: 960px;
+    height: 600px;
+    color: #EEEEEE;
+    font-family: courier;
+    font-size: 11px;
+}
+
+.nexus7_vertical {
+    background-color: #010101;
+    width: 960px;
+    height: 600px;
+    color: #EEEEEE;
+    font-family: courier;
+    font-size: 11px;
+}
+.playerinfo {
+    height: 100%;
+    width: 100%;
+    display: inline;   
 }
