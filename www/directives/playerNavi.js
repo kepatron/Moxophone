@@ -14,6 +14,7 @@ playernavi = (function () {
                             players[i].active = false;
                         }
                         player.active = true;
+                        scope.$parent.playerConfig.activePlayer = player;
                         $log.log(JSON.stringify(players));
                     }
                     

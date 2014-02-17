@@ -5,6 +5,7 @@
         <script src="js/angular/angular.min.js"></script>
         <script src="js/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
         <script src="directives/playerNavi.js"></script>
+        <script src="directives/playerinfo.js"></script>
         <script src="js/playerconfig/playerconfigController.js"></script>
         <script src="js/playerconfig/playerconfigApp.js"></script>
         <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css" />
@@ -14,7 +15,8 @@
     <body>
         <div ng-app="playerconfigApp">
             <div ng-controller="playerconfigController">
-                <playerNavi players="playerConfig.players"></playerNavi>
+                <playernavi players="playerConfig.players"></playernavi>
+                <playerinfo player="playerConfig.activePlayer"></playerinfo>
             </div>
         </div>
     </body>
