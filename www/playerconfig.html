@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script src="js/jquery/jquery-2.1.0.min.js"></script>
+        <script src="js/bootstrap/bootstrap.min.js"></script>
+        <script src="js/angular/angular.min.js"></script>
+        <script src="js/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+        <script src="directives/playerNavi.js"></script>
+        <script src="js/playerconfig/playerconfigController.js"></script>
+        <script src="js/playerconfig/playerconfigApp.js"></script>
+        <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+        
+    </head>
+    <body>
+        <div ng-app="playerconfigApp">
+            <div ng-controller="playerconfigController">
+                <playerNavi players="playerConfig.players"></playerNavi>
+            </div>
+        </div>
+    </body>
+</html>
