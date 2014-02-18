@@ -7,6 +7,7 @@ playerconfig.Apps = (function () {
     
     self.playerconfigApp.directive('playernavi', ['$http', '$log', playernavi.init]);
     self.playerconfigApp.directive('playerinfo', ['$http', '$log', playerinfo.init]);
+    self.playerconfigApp.directive('newplayer', ['$http', '$log', newplayer.init]);
     
     self.playerconfigApp.controller('playerconfigController', ['$scope', '$http', '$log', playerconfigController.init]);
     

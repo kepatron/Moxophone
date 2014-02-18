@@ -6,6 +6,7 @@
         <script src="js/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
         <script src="directives/playerNavi.js"></script>
         <script src="directives/playerinfo.js"></script>
+        <script src="directives/newplayer.js"></script>
         <script src="js/playerconfig/playerconfigController.js"></script>
         <script src="js/playerconfig/playerconfigApp.js"></script>
         <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css" />
@@ -15,8 +16,16 @@
     <body>
         <div ng-app="playerconfigApp">
             <div ng-controller="playerconfigController">
-                <playernavi players="playerConfig.players"></playernavi>
-                <playerinfo player="playerConfig.activePlayer"></playerinfo>
+                <div class="container">
+                    <div class ="row">
+                        <div class="col-md-2">
+                            <playernavi players="playerConfig.players"></playernavi>
+                        </div>
+                        <div class="col-md-10">
+                            <playerinfo player="playerConfig.activePlayer"></playerinfo>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
