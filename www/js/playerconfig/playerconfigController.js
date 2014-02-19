@@ -3,6 +3,7 @@ playerconfigController = (function () {
         init: function ($scope, $http, $log) {
             $scope.playerConfig = {};
             $scope.playerConfig.players = [];
+            $scope.showNewPlayer = false;
             
             var baronSegnirDeck = { name: 'Vampire deck', commander: 'Baron Segnir' };
             var alaraDeck = { name: 'Land deck', commander: 'Child of alara' };
@@ -19,6 +20,10 @@ playerconfigController = (function () {
             $scope.playerConfig.players.push(ilkka);
             
             $scope.playerConfig.activePlayer = kepa;
+            
+            $scope.showAddPlayer = function () {
+                $scope.showNewPlayer = true;
+            }
         }
     }
 })();

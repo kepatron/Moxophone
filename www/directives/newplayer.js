@@ -6,12 +6,10 @@ newplayer = (function () {
             return {
                 restrict: 'E',
                 scope: {
-                    player: '=player'
+                    
                 },
                 link: function (scope, element, attribs) {
-                    scope.addDeck = function (player, deck) {
-                        
-                    }
+                    
                     
                 },
                 templateUrl: 'directives/newplayer.html'

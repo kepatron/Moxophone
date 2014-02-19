@@ -21,9 +21,11 @@
                     <div class ="row">
                         <div class="col-md-2">
                             <playernavi players="playerConfig.players"></playernavi>
+                            <button class="btn btn-primary" ng-click="showAddPlayer()">Add new player</button>
                         </div>
                         <div class="col-md-10">
-                            <playerinfo player="playerConfig.activePlayer"></playerinfo>
+                            <playerinfo ng-hide="showNewPlayer" player="playerConfig.activePlayer"></playerinfo>
+                            <newPlayer ng-show="showNewPlayer"></newPlayer>
                         </div>
                     </div>
                 </div>

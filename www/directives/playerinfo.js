@@ -17,8 +17,7 @@ playerinfo = (function () {
                         var newDeck = { name: scope.player.newDeck.name, commander: scope.player.newDeck.commander };
                         
                         scope.player.decks.push(newDeck);
-                        scope.player.newDeck.name = '';
-                        scope.player.newDeck.commander = '';
+                        scope.player.newDeck = {};
                         
                         scope.addDeckVisible = false;
                     }

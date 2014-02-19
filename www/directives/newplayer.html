@@ -1,0 +1,70 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Player info</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <td>
+                        First name:
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Last name:
+                    </td>
+                    <td>
+                        <input type="text" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Decks</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Commander
+                        </th>
+                        <th>
+                            &nbsp;
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="d in player.decks" >
+                        <td>
+                            {{d.name}}
+                        </td>
+                        <td>
+                            {{d.commander}}
+                        </td>
+                        <td>
+                            <button class="btn btn-warning" ng-click="deleteDeck(d)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="btn btn-primary spanControl" ng-hide="addDeckVisible" ng-click="showAddDeck()">Add deck</button>
+        <div ng-show="addDeckVisible" class="spanControl">
+            Name: <input type="text" class="spanControl" ng-model='player.newDeck.name' />
+            Commander: <input type="text" class="spanControl" ng-model="player.newDeck.commander" />
+            <button class="btn btn-primary spanControl" ng-click="addDeck()">Add</button>
+            <button class="btn btn-primary spanControl" ng-click="hideAddDeck()">Cancel</button>
+        </div>
+    </div>
+    
+</div>
