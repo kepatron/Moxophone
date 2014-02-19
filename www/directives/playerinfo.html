@@ -21,6 +21,9 @@
                         <th>
                             Commander
                         </th>
+                        <th>
+                            &nbsp;
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,9 +34,19 @@
                         <td>
                             {{d.commander}}
                         </td>
+                        <td>
+                            <button class="btn btn-warning" ng-click="deleteDeck(d)">Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <button class="btn btn-primary spanControl" ng-hide="addDeckVisible" ng-click="showAddDeck()">Add deck</button>
+        <div ng-show="addDeckVisible" class="spanControl">
+            Name: <input type="text" class="spanControl" ng-model='player.newDeck.name' />
+            Commander: <input type="text" class="spanControl" ng-model="player.newDeck.commander" />
+            <button class="btn btn-primary spanControl" ng-click="addDeck()">Add</button>
+            <button class="btn btn-primary spanControl" ng-click="hideAddDeck()">Cancel</button>
         </div>
     </div>
 </div>
