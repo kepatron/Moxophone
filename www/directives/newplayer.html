@@ -58,13 +58,17 @@
                 </tbody>
             </table>
         </div>
-        <button class="btn btn-primary spanControl" ng-hide="addDeckVisible" ng-click="showAddDeck()">Add deck</button>
+        <button class="btn btn-secondary spanControl" ng-hide="addDeckVisible" ng-click="showAddDeck()">Add deck</button>
         <div ng-show="addDeckVisible" class="spanControl">
             Name: <input type="text" class="spanControl" ng-model='player.newDeck.name' />
             Commander: <input type="text" class="spanControl" ng-model="player.newDeck.commander" />
-            <button class="btn btn-primary spanControl" ng-click="addDeck()">Add</button>
-            <button class="btn btn-primary spanControl" ng-click="hideAddDeck()">Cancel</button>
+            <button class="btn btn-secondary spanControl" ng-click="addDeck()">Add</button>
+            <button class="btn btn-secondary spanControl" ng-click="hideAddDeck()">Cancel</button>
         </div>
     </div>
+    <div class="buttonAreaContainer">
+        <button class="btn btn-primary">Add player</button>
+        <button class="btn btn-primary">Cancel</button>
+    <div>
     
 </div>
