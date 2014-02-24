@@ -14,8 +14,9 @@ var archLife = {
             "isCommanderDamage": isCommanderDamage
             };
         
-            console.log("Adding entry.");
+            console.log("--- Deleting entry ---");
             console.log(entry);
+            console.log("---\n");
             timestamp = Date.now();
         
             // Adding the entry to the database
@@ -30,8 +31,9 @@ var archLife = {
     dumpDB: function dumpDB(DB) {
             console.log("--- Beginning dump ---");
             for ( var key in DB ) {
-             console.log( key );
+             console.log( "Timestamp: " + key );
              console.log( DB[key] );
+             console.log( "" );
               }
             console.log("--- --- --- --- -- ---\n");
           },
@@ -41,25 +43,83 @@ var archLife = {
         console.log("--- Undoing entry ---");
         console.log(archLife.dmgDB[archLife.lastEntry]);
         delete archLife.dmgDB[archLife.lastEntry];
-        console.log("---  Done undoing ---");
+        console.log("---  Done undoing ---\n");
         archLife.lastEntry = "";
     },
-        
-    getDmg: function getDmg( playerID ) {
-            
-          }
+    
+    // Returns the damage received by specified player in specified game.
+    getDmg: function getDmg( gameID, playerID ) {
+            var playerDamage = 0;
+            for ( var key in archLife.dmgDB ) {
+                if ( archLife.dmgDB[key].targetID == playerID && 
+                archLife.dmgDB[key].gameID == gameID &&
+                archLife.dmgDB[key].deltaLife < 0) {
+                    console.log("Adding damage: " + archLife.dmgDB[key].deltaLife);
+                    playerDamage += archLife.dmgDB[key].deltaLife;
+                }
+            }
+            console.log(playerID + " has received " + (-1) * playerDamage + " damage in game " + gameID + ".\n");
+            return playerDamage;
+          },
+    
+    // Returns the life gained by specified player in specified game.
+    getLifegain: function getDmg( gameID, playerID ) {
+            var playerLifegain = 0;
+            for ( var key in archLife.dmgDB ) {
+                if ( archLife.dmgDB[key].targetID == playerID && 
+                archLife.dmgDB[key].gameID == gameID &&
+                archLife.dmgDB[key].deltaLife > 0) {
+                    console.log("Adding life: " + archLife.dmgDB[key].deltaLife);
+                    playerLifegain += archLife.dmgDB[key].deltaLife;
+                }
+            }
+            console.log(playerID + " has gained " + playerLifegain + " life in game " + gameID + ".\n");
+            return playerLifegain;
+          },
+    
+    // This function returns the commander damage received.
+    // Returns an object with rows like this:
+    //      { <source of damage>:<total amount of damage> }
+    // Takes the game ID and the target player as inputs.
+    // Usage example: archLife.getCmdrDmg( 1, "ilkka")
+    getCmdrDmg: function getCmdrDmg( gameID, playerID ) {
+        var cmdrDmg = {};
+        for ( var key in archLife.dmgDB ) {
+                if ( archLife.dmgDB[key].targetID == playerID && 
+                archLife.dmgDB[key].gameID == gameID &&
+                archLife.dmgDB[key].isCommanderDamage ) {
+                    console.log("Adding commander damage: " + archLife.dmgDB[key].deltaLife + " from " +  archLife.dmgDB[key].sourceID);
+                    if ( cmdrDmg[archLife.dmgDB[key].sourceID] === undefined ) {
+                       cmdrDmg[archLife.dmgDB[key].sourceID] = archLife.dmgDB[key].deltaLife;
+                    } else {
+                       cmdrDmg[archLife.dmgDB[key].sourceID] += archLife.dmgDB[key].deltaLife;
+                    }
+                }
+        }
+        console.log("Commander damage received by " + playerID + " in gameID " + gameID + ":");
+        console.log(cmdrDmg);
+        return cmdrDmg;
+    }
     
 };
 
 // Manuaalisia testirivejä
-setTimeout( archLife.addEntry(1, "kepa", "erno", -3, true ), 1000);
-setTimeout( archLife.addEntry(1, "erno", "kepa", -2, true ), 2000);
-setTimeout( archLife.addEntry(1, "ilkka", "erno", -4, true ), 3000);
+setTimeout( archLife.addEntry(1, "kepa", "erno", -3, false ), 10000);
+setTimeout( archLife.addEntry(1, "erno", "kepa", -2, false ), 20000);
+setTimeout( archLife.addEntry(1, "ilkka", "erno", -4, true ), 30000);
 archLife.dumpDB( archLife.dmgDB );
 archLife.undo();
 archLife.dumpDB( archLife.dmgDB );
-setTimeout( archLife.addEntry(1, "erno", "ilkka", -5, true ), 4000);
+setTimeout( archLife.addEntry(1, "erno", "ilkka", -5, true ), 40000);
+setTimeout( archLife.addEntry(1, "erno", "ilkka", 3, false ), 40000);
+setTimeout( archLife.addEntry(1, "erno", "kimmo", -2, true ), 40000);
+setTimeout( archLife.addEntry(1, "erno", "kimmo", -3, true ), 40000);
+setTimeout( archLife.addEntry(1, "erno", "kimmo", -7, true ), 40000);
 archLife.dumpDB( archLife.dmgDB );
+archLife.getDmg( 1, "erno");
+archLife.getLifegain( 1, "erno");
+archLife.getCmdrDmg( 1, "erno");
+
 
 
 
