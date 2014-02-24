@@ -102,37 +102,25 @@ var archLife = {
     }
 };
 
-var gameCore = {
-    // Game mode (standard (0), EDH (1), two-headed giant (2), other (3))
-    gameMode: 0,
-    
-    // Game ID, unique, will be generated from timestamp+location (or sth)
-    gameID: 0,
-    
-    // Player list object
-    players: {}
-    
-};
-
-// Manuaalisia testirivejä
-setTimeout( archLife.addEntry(1, "kepa", "erno", -3, false ), 10000);
-setTimeout( archLife.addEntry(1, "erno", "kepa", -2, false ), 20000);
-setTimeout( archLife.addEntry(1, "ilkka", "erno", -4, true ), 30000);
-archLife.dumpDB( archLife.dmgDB );
-archLife.undo();
-archLife.dumpDB( archLife.dmgDB );
-setTimeout( archLife.addEntry(1, "erno", "ilkka", -5, true ), 40000);
-setTimeout( archLife.addEntry(1, "erno", "ilkka", 3, false ), 40000);
-setTimeout( archLife.addEntry(1, "erno", "kimmo", -2, true ), 40000);
-setTimeout( archLife.addEntry(1, "erno", "kimmo", -3, true ), 40000);
-setTimeout( archLife.addEntry(1, "erno", "kimmo", -7, true ), 40000);
-setTimeout( archLife.addEntry(1, "erno", "kimmo", -7, true ), 40000);
-setTimeout( archLife.addEntry(1, "erno", "erno", 3, false ), 40000);
-setTimeout( archLife.addEntry(1, "erno", "erno", 2, false ), 40000);
-archLife.dumpDB( archLife.dmgDB );
-archLife.getDmg( 1, "erno");
-archLife.getLifegain( 1, "erno");
-archLife.getCmdrDmg( 1, "erno");
+/* Manuaalisia testirivejä
+setTimeout( function(){ archLife.addEntry(1, "kepa", "erno", -3, false )}, 1);
+setTimeout( function(){ archLife.addEntry(1, "erno", "kepa", -2, false )}, 2);
+setTimeout( function(){ archLife.addEntry(1, "ilkka", "erno", -4, true )}, 3);
+setTimeout( function(){ archLife.dumpDB( archLife.dmgDB )}, 4);
+setTimeout( function(){ archLife.undo()}, 5);
+setTimeout( function(){ archLife.dumpDB( archLife.dmgDB )}, 6);
+setTimeout( function(){ archLife.addEntry(1, "erno", "ilkka", -5, true )}, 7);
+setTimeout( function(){ archLife.addEntry(1, "erno", "ilkka", 3, false )}, 8);
+setTimeout( function(){ archLife.addEntry(1, "erno", "kimmo", -2, true )}, 9);
+setTimeout( function(){ archLife.addEntry(1, "erno", "kimmo", -3, true )}, 10);
+setTimeout( function(){ archLife.addEntry(1, "erno", "kimmo", -7, true )}, 11);
+setTimeout( function(){ archLife.addEntry(1, "erno", "kimmo", -7, true )}, 12);
+setTimeout( function(){ archLife.addEntry(1, "erno", "erno", 3, false )}, 13);
+setTimeout( function(){ archLife.addEntry(1, "erno", "erno", 2, false )}, 14);
+setTimeout( function(){ archLife.dumpDB( archLife.dmgDB )}, 15);
+setTimeout( function(){ archLife.getDmg( 1, "erno")}, 16);
+setTimeout( function(){ archLife.getLifegain( 1, "erno")}, 17);
+setTimeout( function(){ archLife.getCmdrDmg( 1, "erno")}, 18); */
 
 
 
