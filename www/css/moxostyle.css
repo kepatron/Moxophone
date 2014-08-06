@@ -1,3 +1,7 @@
+body {
+    color: #CCCCCC;
+}
+
 .nexus7_horizontal {
     background-color: #010101;
     width: 960px;
@@ -80,7 +84,7 @@ td > img {
 
 .inforow {
     width: 10em;
-    text-align: center
+    text-align: left
 }
 
 .gamedata {

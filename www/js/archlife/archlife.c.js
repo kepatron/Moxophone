@@ -1,8 +1,8 @@
 $(document).ready( function() {
     $(".player").click( function() {
         var $player = $(this).text();
-        $(".console").prepend( "<p class=\"return\">- Damage received by " + $player + ": "+ archLife.getDmg(1, $player)*(-1) + "</p>");
-        $(".console").prepend( "<p class=\"return\">- Healing received by " + $player + ": "+ archLife.getLifegain(1, $player) + "</p>"); 
+        $(".console").prepend( "<p class=\"return\">- Damage received by \t" + $player + ": "+ archLife.getDmg(1, $player)*(-1) + "</p>");
+        $(".console").prepend( "<p class=\"return\">- Healing received by \t" + $player + ": "+ archLife.getLifegain(1, $player) + "</p>"); 
     });
     
     $(".addDmg").click( function() {

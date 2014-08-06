@@ -1,0 +1,37 @@
+<html ng-app="mongular">
+    <head>
+        <script src="js/jquery/jquery-2.1.0.min.js"></script>
+        <script src="js/angular/angular.min.js"></script>
+        <script src="js/mongular/mongularApp.js"></script>
+        <script src="js/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+        <link type="text/css" rel="stylesheet" href="css/moxostyle.css"/>
+    </head>
+    <body class="" ng-controller="moxController as mox">
+      <div class="nexus7_horizontal">
+           <div class="playercontainer" ng-repeat="player in mox.players">
+                <div class="playerinfo">
+                    <table>
+                        <tr>
+                            <td rowspan="2" class="imgcell"><img ng-src="{{player.avatar}}" /></td>
+                            <td class="inforow"><strong>Name:</strong>{{player.name}}</td>
+                            <td rowspan="2" class="lifecell">{{player.life}}</td>
+                        </tr>
+                         <tr>
+                            <td class="inforow"><strong>Deck:</strong>{{player.deck}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="gamedata">
+                    <h1>History</h1>
+                    <table class="lifehistory">
+                        <thead>
+                            <th>Time</th><th>Life change</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="entry in player.lifeEntries"><td>{{entry.time}}</td><td>{{entry.amount}}</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </body>
+</html>
