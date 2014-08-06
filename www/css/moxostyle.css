@@ -1,5 +1,6 @@
 body {
     color: #CCCCCC;
+    background-color: #111111;
 }
 
 .nexus7_horizontal {
@@ -31,6 +32,8 @@ body {
     border: 4px solid #332222;
     background-color: #403333;
     color: #CCCCCC;
+    font-family: courier;
+    font-size: 11px;
 }
 
 .playerinfo {

@@ -5,6 +5,19 @@
         this.players = players;
     });
     
+    app.controller('PlayerController', function() {
+        this.player = {
+            name: "",
+            life: 40,
+            deck: "",
+            avatar: "img/new.png"
+        }
+        
+        this.addPlayer = function(player) {
+            players.push(this.player);
+        };
+    });
+    
     var players = [
         {
             name: "Bogdan",
