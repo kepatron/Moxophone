@@ -15,6 +15,12 @@
         
         this.addPlayer = function(player) {
             players.push(this.player);
+            this.player = {
+            name: "",
+            life: 40,
+            deck: "",
+            avatar: "img/new.png"
+            }
         };
     });
     

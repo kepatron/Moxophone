@@ -1,6 +1,11 @@
 body {
     color: #CCCCCC;
     background-color: #171111;
+    background-image: "img/moxoground.jpg";
+}
+
+.mainframe {
+    padding: 1%;
 }
 
 table {
@@ -16,6 +21,26 @@ table {
     }
 
 .playerinfo {
+}
+
+.namePreview {
+    font-family: impact;
+    font-size: 2em;
+    height: 1em;
+    text-align: center;
+    letter-spacing: 0.7em;
+    color: #ffb400;
+    text-transform: uppercase;
+    text-shadow: 0px 5px 5px #1d1818;
+}
+
+.newPlayer {
+    background-color: #343232;
+    border-style: dotted;
+    display: block;
+    height: auto;
+    margin: 0;
+    padding: 0.7em;
 }
 
 .avatar {
@@ -77,4 +102,27 @@ table {
     padding: 0;
     color: #EEDDDD;
     text-align: center;
+}
+
+.nameBar {
+    width: 100%;
+    align-self: center;
+}
+
+.lefty {
+    display: inline-block;
+    float: left;
+}
+
+.righty {
+    display: inline-block;
+    float: right;
+}
+
+.addButton {
+    color: #ffc007;
+    background-color: #403333;
+    box-shadow: 0px 0px 5px 1px #1d1818;
+    margin: 0.5em 0 0 0;
+    padding: 0.5em;
 }
